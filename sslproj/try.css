@@ -1,0 +1,243 @@
+*{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+body{
+    background-color: #1A1A1D;
+}
+
+
+.navbar{
+    display: flex;
+    position:fixed;
+    width:100%;
+    top:0px;
+    height: 50px;
+    align-items: center;
+    background-color:  #c80c54;
+    /* background-color: white; */
+    z-index: 200;
+    
+}
+
+#basket{
+    padding-left: 5px;
+    padding-right: 5px;
+    
+}
+.buttons{
+    padding-left: 20px;
+    /* padding-right: 20px; */
+    margin-right: 20px;
+}
+.buttons a{
+    padding: 4px;
+    padding-top: 4px;
+    padding-bottom: 5px;
+    margin-left: 5px;
+    background-color:black;
+    color: blanchedalmond;
+    border-radius: 4px;
+}
+.buttons a:hover{
+    /* box-shadow: 4px 4px #41424C; */
+    /* border-right: 2px solid rgb(152, 141, 141); */
+    border-bottom: 4px solid rgb(159, 148, 148);
+    color:whitesmoke;
+    background-color: black;
+    border-radius: 5px;
+}
+#basket b{
+    font-size: 30px;
+    /* font-family:"Comic Sans MS", "Comic Sans", cursive;  */
+    /* font-family: 'Times New Roman', Times, serif; */
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+}
+#icon1{
+    color: black;
+    float: right;
+    position: absolute;
+    right: 4px;
+   cursor: pointer;
+    
+}
+.sidebar span{
+    color: black;
+    display: block;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 30px;
+ 
+    
+}
+.sidebar{
+    position:fixed;
+    /* top: 50px; */
+    right: 0px;
+    /* margin-top: 50px; */
+    display: none;
+    top: 50px;
+    
+    border: 2px solid rgb(147, 140, 140);
+    width: 200px;
+    background-color:#A7A7A7;
+    z-index: 100;
+    transition: 1s linear;
+ 
+   
+}
+.sidebar span{
+    transition:all 0.5s ease;
+}
+.sidebar span:hover{
+    /* border-bottom: 3px solid black; */
+    background-color:  #ad8d99;
+    border-right: 7px solid black;
+    border-bottom: 1px solid black;
+    font-size: 17px;
+    
+}
+.images{
+    margin-right: 10px;
+}
+/* .sidebar{
+    display: none;
+} */
+/* #sidebar .active{
+    display:none;
+} */
+.showhide{
+    background-color:rgb(215, 195, 195);
+    border:1px solid black;
+    border-radius:10px ;
+    margin-right: 10px;
+    width:30px;
+    transition: all 0.3s ease;
+}
+.showhide:hover{
+    /* box-shadow: 3px 3px rgb(181, 162, 173); */
+    border: 2px solid black;
+    width:32px;
+}
+
+#sign{
+    display: none;
+    margin-top:100px ;
+    position: fixed;
+    top:-10px;
+    left: 25%;
+    padding: 30px,30px;
+    /* padding-bottom: 20px; */
+    /* color:white; */
+    background-color:rgb(221, 220, 220);
+    border: 2px solid black;
+    width:50%;
+    /* height: 100%; */
+    /* margin: 10px ,10px; */
+
+}
+
+.btn{
+    border: 1px solid black;
+    border-radius: 100%;
+    margin: inherit;
+    float: right;
+    /* padding: 30px,30px; */
+    margin-top: 3px;
+    margin-right:3px;
+    width:40px;
+    cursor: pointer;
+}
+.btn:hover{
+    box-shadow:3px 3px rgb(129, 127, 127);
+
+}
+
+#log{
+    display: none;
+    margin-top:100px ;
+    position: fixed;
+    top:20px;
+    left:25%;
+    padding: 30px,30px;
+    /* color:white; */
+    border: 2px solid black;
+    background-color:rgb(221, 220, 220);
+    width: 50%;
+    /* height: 100%; */
+}
+.logsign{
+    cursor:pointer;
+    /* padding-bottom: 10px; */
+
+}
+.form0{
+    padding-left: 20px;
+}
+#submit1{
+    margin-bottom: 10px;
+    padding:2px;
+    cursor: pointer;
+
+}
+#submit0{
+    margin-bottom: 10px;
+    padding:2px;
+    cursor: pointer;
+}
+
+.catbox{
+    width: 90%;
+    margin: auto;
+    /* border: 2px solid white; */
+    margin-top: 70px;
+}
+.catbox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 0.5px solid rgb(79, 71, 71);
+    border-radius: 20px;
+}
+.imagecat{
+   width: 250px;
+   height: 270px;
+    margin: 20px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border: 2px solid rgb(109, 98, 98);
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+.imagecat:hover{
+    border-radius: 23px;
+    box-shadow: 4px 4px 4px 4px rgb(79, 71, 71);
+
+}
+.ci{
+    width: 210px;
+    height: 210px;
+    margin: auto;
+}
+.viewcat{
+    text-decoration: none;
+    color: white;
+    padding: 8px;
+    border: 1px solid rgb(146, 132, 132);
+    background-color: #a10a44;
+    border-radius: 10px;
+    color: wheat;
+    font-style: oblique;
+}
+.viewcat:hover{
+    box-shadow: 2px 2px rgb(146, 132, 132);
+    /* padding: 6px; */
+    
+}
+

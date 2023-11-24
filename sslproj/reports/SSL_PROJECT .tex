@@ -1,0 +1,106 @@
+\documentclass{article}
+ \usepackage{setspace}
+\usepackage{tcolorbox,fancyhdr,lastpage,hyperref,graphicx,float}
+%\usepackage[table]{xcolor}
+\pagestyle{fancy}
+\lhead{My Basket}
+\rhead{SSL-Project}
+\cfoot{Page \thepage\ of \pageref{LastPage}}
+\hypersetup{
+colorlinks=true,
+linkcolor=blue,
+urlcolor=magenta,
+%pdftitle{SSL_LAB_PROJECT.tex}
+}
+\usepackage{array}
+
+%\newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
+%\newcolumntype{N}{@{}m{0pt}@{}}
+\newcolumntype{M}[1]{>{\centering \arraybackslash}p{#1}}
+
+\pagecolor{blue!25!white}
+\setstretch{1.25}
+\begin{document}
+\begin{titlepage}
+   \begin{center}
+       \vspace*{5cm}
+\begin{tcolorbox}[colback=blue!60!white,colframe=blue!50!black]
+\centering
+       \LARGE{\textbf{\textcolor{white}{My Basket}}}
+\end{tcolorbox}
+       \vspace{0.5cm}
+      \texttt{\Large{A Few Clicks Is All It Takes}}
+            
+       \vspace{7cm}
+  \large{ The Software-Systems Laboratory Project\\ \textit{Instructor: Prof.Tamal Das}}
+       
+
+       \vfill
+            
+      
+            
+   \end{center}
+\end{titlepage}
+\newpage
+\tableofcontents
+%\listoftables
+%\listoffigures
+\newpage
+\section{The Members of the Project}
+
+\begin{table}[H]
+  \renewcommand\arraystretch{1.6}
+    
+        \centering
+\begin{tabular}{|M{5cm}|M{5cm}|}
+
+\hline
+\textbf{\Large{Name of the group Member}} & \Large{\textbf{Roll Number}}\\[50pt]
+\hline
+\texttt{\Large{Duddu Hriday}} & \href{mailto:210010016@iitdh.ac.in}{\Large{210010016}}\\[50pt]
+\hline
+\texttt{\Large{Mounika Chekka}} & \href{mailto:210010011@iitdh.ac.in}{\Large{210010011}}\\[50pt]
+\hline
+\texttt{\Large{Asha Shiny}} & \href{mailto:210010010@iitdh.ac.in}{\Large{210010010}}\\[50pt]
+\hline
+\texttt{\Large{Sujit Khare}} & \href{mailto:210010051@iitdh.ac.in}{\Large{210010051}}\\[50pt]
+\hline
+\texttt{\Large{Prajana S}} & \href{mailto:210010042@iitdh.ac.in}{\Large{210010042}}\\[50pt]
+\hline
+\end{tabular}
+
+\end{table}
+\newpage
+\section{About Our Project}
+\begin{tcolorbox}[colback=blue!60!white,colframe=blue!50!black]
+\textcolor{white}{
+Our project is based on \textbf{E-COMMERCE}. E-commerce (or electronic commerce) is the buying and selling of goods or services on the Internet. It encompasses a wide variety of \textbf{data, systems} and \textbf{tools} for online buyers and sellers.}
+\end{tcolorbox}
+\section{Scope Of Our Project}
+Here is the List of Topics that are going to be involved in this project.
+\begin{tcolorbox}[colback=blue!60!white,colframe=blue!50!black]
+\begin{itemize}
+\item[\textcolor{white}{\textbullet}] \texttt{\textcolor{white}{HTML}}
+\item[\textcolor{white}{\textbullet}] \texttt{\textcolor{white}{Javascript}}
+\item[\textcolor{white}{\textbullet}] \texttt{\textcolor{white}{Php}}
+\item[\textcolor{white}{\textbullet}] \texttt{\textcolor{white}{MySQL}}
+\item[\textcolor{white}{\textbullet}] \texttt{\textcolor{white}{CSS}}
+\item[\textcolor{white}{\textbullet}] \texttt{\textcolor{white}{BootStrap}}
+\end{itemize}
+\end{tcolorbox}
+\section{Features}
+Our project includes the following features
+\begin{tcolorbox}[colback=blue!60!white,colframe=blue!50!black]
+\begin{itemize}
+\item[\textcolor{white}{\textbullet}] \textrm{\textcolor{white}{Our Project welcomes you by showing all the products that are available 
+to buy online.}}
+\item[\textcolor{white}{\textbullet}]\textrm{\textcolor{white}{You need to sign-in first to select items if you wish to buy them.}}
+\item[\textcolor{white}{\textbullet}] \textrm{\textcolor{white}{There would be a search button which make the customer to easily search
+for the things they want to buy.}}
+\item[\textcolor{white}{\textbullet}] \textrm{\textcolor{white}{All the items you choose to buy will be listed which makes the addition and deletion of products you buy Easy }}
+
+\end{itemize}
+\end{tcolorbox}
+
+
+\end{document}

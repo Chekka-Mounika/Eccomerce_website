@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="try.css">
+    <style>
+        .wishlist{
+            border:2px solid grey;
+           
+            margin:100px;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+        }
+        .wishprod{
+            display:flex;
+
+        }
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  border-radius:20px;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: grey;
+
+}
+    </style>
+</head>
+<body>
+<?php
+    include "dbconnect.php";
+  ?>
+  <div class="navbar">
+    
+       
+    <!-- <div><i class='bx bxs-basket'></i></div> -->
+    <div id="basket"><a href="try.php" style="text-decoration:none;color:black"><b>MyBasket</b></a></div>
+    <div class="buttons">  
+      <?php
+        session_start();
+        if(!isset($_SESSION['loggedin'])){
+          echo ' <a class="logsign" id="loginbtn"><b>Login</b></a>';
+          echo '   <a class="logsign" id="signupbtn"><b>Signup</b></div></a>';
+      }
+      ?>
+       <!-- <a class="logsign" id="loginbtn"><b>Login</b></a> -->
+    
+    <!-- <a class="logsign" id="signupbtn"><b>Signup</b></div></a> -->
+    <?php
+   
+   if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
+   
+     echo '<a href="logout.php" class="logsign" id="signupbtn" style="text-decoration:none"><b>logout</b></div></a>';
+                       }
+   ?>
+   <div id="icon1"> <img src="leftarrow.png" id="left" class="showhide" title="Show menu-bar"><img src="rightarrow.png" id="right" class="showhide" title="Hide menu-bar"></div>
+</div>
+
+<div class="sidebar" id="sidebar">
+<span><a href="try.php" style="text-decoration:none;color:black;"><img src="home.png" style="width: 23px;"  class="images"><b>Home</b></a></span>
+<span><a href='cart.php'  style="text-decoration:none;color:black;"><img src="cart.png" style="width: 23px;" class="images"><b>Your cart</b></a></span>
+<span><a href='wishlist.php'style="text-decoration:none;color:black;"><img src="heart.png" style="width: 23px;" class="images"><b>Your wishlist</b></a></span>
+<span><a href='shop.php'style="text-decoration:none;color:black;"><img src="orders.png" style="width: 23px;" class="images"><b>Your orders</b></a></span>
+<span><a href='account.php'style="text-decoration:none;color:black;"><img src="account.png" style="width: 23px;" class="images"><b>Your Account</b></a></span>
+<span><a href='contact.php'style="text-decoration:none;color:black;"><img src="phone.png" style="width: 23px;" class="images"><b>Contact Us</b></a></span>
+</div>
+
+<div class="signup" id="sign">
+  <div>
+<img src="close.png" class="btn" id="btn1">
+<center><h3>Don't have an account? Then signup</h3></center>
+</div>
+    <form action="conn.php" method="POST" class="form0">
+        <label><b>Name:</b></label><br>
+      <input type="text" id="name" name="name" style="width: 95%" required/>
+      <!-- <button class="btn" id="btn1">x</button> -->
+    <br>
+      <label><b>Email:</b></label><br>
+      <input type="email" id="email" name="email" style="width: 95%" required/>
+      <br>
+      <label><b>Password:</b></label><br>
+      <input type="password" id="password" name="password" style="width: 95%" required/>
+    <br>
+      <label><b>Confirm Password:</b></label><br>
+      <input type="password" id="cpassword" name="cpassword" style="width: 95%" required/>
+      <br><br>
+      <input type="submit" id="submit0" name="submit">
+      
+</form>
+</div>
+<!-- login modal -->
+<div class="login" id="log">
+  <div>
+<img src="close.png" class="btn" id="bttn1">
+<center><h3>Already have an account! Then login</h3></center>
+</div>
+<br><br>
+
+    <form action="conn1.php" method="POST" class="form0" >
+      <label><b>Email:</b></label><br>
+      <input type="email" id="email" name="email" style="width: 95%" required/>
+      <!-- <button class="bttn" id="bttn1">x</button> -->
+      <br>
+      <label><b>Password:</b></label><br>
+      <input type="password" id="password" name="password"style="width: 95%" required/>
+      <br><br>
+      <input type="submit" id="submit1" name="submit1">
+</form>
+
+</div>
+<div class="wishlist">
+<?php
+if(!isset($_SESSION['loggedin'])){
+    echo "<div class='notlogaw'style='color:white;'><div><b>You are not logged in<div>Login to view your cart</b></div></div></div>";
+ }
+ if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']==true){
+    $userid=$_SESSION["userid"];
+    $sql1="SELECT * FROM `cart`  WHERE `user_id`='$userid'";
+    $result=mysqli_query($conn,$sql1);
+    if(mysqli_num_rows($result)==0)
+    {
+        echo"<div style='color:white;'>You don't have any products in your cart</div>";
+    }
+    else{
+        $price=0;
+        echo "<table style='color:white;'><tr><th>Product name</th><th>Product price</th><th>Delete product</th></tr>";
+        while($row=mysqli_fetch_assoc($result)){
+            echo '<tr><td><a href="single.php?productid='.$row['product_id'].'"  style="text-decoration:none;color:white;">'.$row['product_name'].'</a></td>';
+            echo '<td>'.$row['product_price'].'</td>';
+            echo "<td><a href='delcart.php?productid=".$row['product_id']."'><button style='background-color:#c80c54;color:white;padding-left:20px;padding-right:20px;border-radius:10px;padding-top:2px;padding-bottom:2px;cursor:pointer'><b>Delete</b></button></a></td></tr>";
+           $price=$price+$row['product_price'];
+
+
+        }
+        echo "</table>";
+        echo "<div style='color:white;padding:20px;'><b>Total price: ".$price."</b>
+        <br>
+        <a href='shop.php'><button style='background-color:#c80c54;color:white;padding-left:20px;padding-right:20px;border-radius:10px;padding-top:4px;padding-bottom:4px;cursor:pointer'><b>Buy now</b></button></a>
+        </div>";
+    }
+ }
+
+
+
+
+?>
+
+</div>
+</body>
+<script>
+right.addEventListener('click',function hide(){
+document.getElementById('sidebar').style.display="none";
+})
+left.addEventListener('click',function show(){
+document.getElementById('sidebar').style.display="block";
+})
+
+
+signupbtn.addEventListener('click',function signup(){
+        document.getElementById('sign').style.display="block";
+        document.getElementById('log').style.display="none";
+       })
+
+       window.addEventListener('click',function signup1(e){
+        if(e.target==document.getElementById('sign')){
+        document.getElementById('sign').style.display="none";
+        }
+       })
+       btn1.addEventListener('click',function signup2(){
+        document.getElementById('sign').style.display="none";
+       })
+       loginbtn.addEventListener('click',function logger(){
+        document.getElementById('log').style.display="block";
+        document.getElementById('sign').style.display="none";
+       })
+       bttn1.addEventListener('click',function logger1(){
+        document.getElementById('log').style.display="none";
+       })
+       
+
+</script>
+</html>
