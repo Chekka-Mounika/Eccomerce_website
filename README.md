@@ -29,7 +29,6 @@ In today's digital age, ecommerce platforms are essential for facilitating onlin
 
 ### Extract Required Folder
 - **Extract the Provided Zip File:**
-  - Extract the folder named "210010016,210010011,210010042,210010010,210010051.zip".
   - Inside, locate the folder named "sslproj".
   - Place the "sslproj" folder in the 'htdocs' directory of your XAMPP installation (typically located in your file explorer).
 
